@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card_container {
+    display: grid;
+    grid-template-columns: repeat(4, 30vw);
+    justify-content: center;
+}
+
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-family: 'Jelly Anika';
+    font-weight: normal;
+    font-size: 80px;
+    color: #0868FF;
+}
+
+.dog_create {
+    display: flex;
+    justify-content: end;
+    color: #3C88FF;
+    font-family: 'Jelly Anika';
+    font-size: 40px;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}

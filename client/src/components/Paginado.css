@@ -1,0 +1,31 @@
+
+.paginado_flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.paginado_item {
+    display: flex;
+    justify-content: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.paginado_item button {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 25% 10%;
+    background-color: #82704B;
+    font-family: 'Bondoni MT';
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}
