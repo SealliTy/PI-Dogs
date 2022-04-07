@@ -53,3 +53,17 @@ export function filterTemp(payload){
         payload: payload
     }
 }
+
+export function filterPeso(payload){
+    return {
+        type: 'FILTER_PESO',
+        payload: payload
+    }
+}
+
+export function filterAZ(payload){
+    return {
+        type: 'FILTER_AZ',
+        payload: payload
+    }
+}

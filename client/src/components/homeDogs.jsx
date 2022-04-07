@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterDogsApiDb, getDogs, getTemperaments } from '../actions/index';
+import { filterDogsApiDb, getDogs, getTemperaments, filterTemp, filterPeso, filterAZ } from '../actions/index';
 import { Link } from 'react-router-dom';
 import Card from './card';
 import Paginado from './Paginado';
@@ -11,7 +11,8 @@ export default function HomeDogs() {
     const dispatch = useDispatch()
     const Dogs = useSelector(state => state.dogsFilter)
     const allTemperaments = useSelector(state => state.temperaments)
-    const [input, setInput] = React.useState({
+    const [, setOrden] = useState('')
+    const [input] = React.useState({
         raza: '',
         temperamento: '',
         peso: ''
@@ -30,28 +31,46 @@ export default function HomeDogs() {
         dispatch(getTemperaments())
     }, [dispatch])
 
-    function handleClick(e) {
-        e.preventDefault();
-        dispatch(getDogs());
-        dispatch(getTemperaments(input));
-    }
+    // function handleClick(e) {
+    //     e.preventDefault();
+    //     dispatch(getDogs());
+    //     dispatch(getTemperaments(input));
+    // }
 
-    const handleChange = (e) => {
-        setInput({
-            ...input,
-            [e.target.name]: e.target.value
-        })
-    }
+    // const handleChange = (e) => {
+    //     setInput({
+    //         ...input,
+    //         [e.target.name]: e.target.value
+    //     })
+    // }
 
     const handlefilterDogs = (o) => {
         dispatch(filterDogsApiDb(o.target.value))
+    }
+
+    const handlefilterTemp = (o) => {
+        dispatch(filterTemp(o.target.value))
+    } 
+
+    const handlefilterPeso = (o) => {
+        o.preventDefault();
+        dispatch(filterPeso(o.target.value))
+        setPage(1)
+        setOrden(`${o.target.value}`)
+    }
+
+    const handlefilterAZ = (o) => {
+        o.preventDefault();
+        dispatch(filterAZ(o.target.value))
+        setPage(1)
+        setOrden(`${o.target.value}`)
     }
 
 
 
 
     return (
-        <body>
+        <div className={style.body}>
             <h1 className={style.title}>Dogs</h1>
             <div>
                 <Link to='/DogCreate' style={{ textDecoration: 'none' }}>
@@ -59,10 +78,13 @@ export default function HomeDogs() {
                 </Link>
             </div>
             <div className={style.search}>
-                <select>
+            <select onChange={o => handlefilterPeso(o)}>
+                    <option value='pesomin'>Peso Minimo</option>
+                    <option value='pesomax'>Peso Maximo</option>
+                </select>
+                <select onChange={o => handlefilterAZ(o)}>
                     <option value='a_z'>Ordenar A-Z</option>
                     <option value='z_a'>Ordenar Z-A</option>
-                    <option value='peso'>Peso</option>
                 </select>
                 <select onChange={o => handlefilterDogs(o)}>
                     <option value='api_db'>Todas</option>
@@ -70,7 +92,7 @@ export default function HomeDogs() {
                     <option value='api'>Existente</option>
                 </select>
                 <label>Temperamentos: </label>
-                <select name='temperamento' value={input.temperamento} onChange={handleChange} onSubmit={handleClick}>
+                <select name='temperamento' value={input.temperamento} onChange={o => handlefilterTemp(o)} >
                     <option value='ALL'>Todos</option>
                     {
                         allTemperaments.map(o => {
@@ -90,8 +112,8 @@ export default function HomeDogs() {
                 {
                     currentDogs && currentDogs.map(o => {
                         return (
-                            <div className={style.card}>
-                                <Link to={`/HomeDogs/${o.id}`} key={o.id} style={{ textDecoration: 'none' }}>
+                            <div className={style.card} key={o.id}>
+                                <Link to={`/HomeDogs/${o.id}`}  style={{ textDecoration: 'none' }}>
 
                                     <Card
                                         raza={o.raza}
@@ -106,6 +128,6 @@ export default function HomeDogs() {
                 }
             </div>
 
-        </body>
+        </div>
     )
 }

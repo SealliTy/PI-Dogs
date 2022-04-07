@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body {
+    height: 100vh;
+    background-image: url(../img/19187720.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    width: 40%;
+    height: 70%;
+    background-color: #282828;
+    margin-top: 80px;
+    padding: 10px;
+}
+
+.h2 {
+    color: #fff;
+    font-family: 'Jelly Anika';
+    font-size: 60px;
+    font-weight: normal;
+    border-bottom: 1px solid #CECECE;
+    margin-bottom: 30px;
+}
+
+.create_button {
+    background-color: #8230FF;
+    font-family: 'Jelly Anika';
+    font-size: 30px;
+}
+
+.input {
+    border: 1px solid #350086;
+    font-family: 'Jelly Anika';
+    font-size: 30px;
+    text-align: center;
+    padding: 5px;
+}
+
+input, select, button{
+    background-color: transparent;
+    margin: 5px;
+    border: none;
+}
+

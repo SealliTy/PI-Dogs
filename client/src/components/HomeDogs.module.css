@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+
+
 .card_container {
     display: grid;
     grid-template-columns: repeat(4, 30vw);
@@ -22,7 +24,7 @@
 
 .dog_create {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     color: #3C88FF;
     font-family: 'Jelly Anika';
     font-size: 40px;

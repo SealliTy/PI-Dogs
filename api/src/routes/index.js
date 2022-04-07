@@ -19,7 +19,7 @@ const apiDog = async () => {
         return {
             id: o.id,
             raza: o.name,
-            temperamento: o.temperament,
+            temperamento: o.temperament ? o.temperament : 'Dont have temperament',
             img: o.image.url,
             peso: o.weight.metric,
             altura: o.height.metric,

@@ -23,7 +23,8 @@ export default function DogDetail() {
                     peso={Dog.peso}
                     altura={Dog.altura}
                     añosVida={Dog.añosVida}
-                    temperamento={Dog.temperamento} />
+                    temperamento={Dog.temperamento}
+                    />
             )
             else{
                 return 'Dont have dog'
