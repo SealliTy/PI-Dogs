@@ -5,31 +5,38 @@
 }
 
 .body {
-    background-image: url(../img/19187720.jpg);
+    background-color: #8BA0FF;
 }
 
 .card_container {
     display: grid;
-    grid-template-columns: repeat(4, 400px);
+    grid-template-columns: repeat(4, 330px);
     justify-content: center;
     align-items: center;
 }
 
-.title {
+.cards_dogs {
     display: flex;
+    align-content: center;
     justify-content: center;
-    font-family: 'Jelly Anika';
-    font-weight: normal;
-    font-size: 80px;
-    color: #0868FF;
 }
 
-
-
-.search {
+.filtros {
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+    align-items: center;
+}
+
+.filtros select {
+    color: #000;
+    font-size: 25px;
+    font-family: 'Jelly Anika';
+    font-weight: normal;
+    padding: 3px;
+    border: 1px solid #01177E;
+    box-shadow: 0 0 3px #01177E;
+    text-align: center;
+    margin-top: 100px;
 }
 
 .link {
@@ -38,10 +45,12 @@
 
 .navegacion {
     display: flex;
+    width: 100%;
+    position: fixed;
     justify-content: center;
     align-items: center;
-    border: 1px solid #fff;
-    font-size: 50px;
+    background-color: rgb(139, 160, 255, 0.8);
+    font-size: 40px;
     color: #fff;
 }
 

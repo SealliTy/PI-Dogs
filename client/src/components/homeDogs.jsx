@@ -55,13 +55,11 @@ export default function HomeDogs() {
     }
 
     const handlefilterPeso = (o) => {
-        o.preventDefault();
         dispatch(filterPeso(o.target.value))
         setPage(1)
     }
 
     const handlefilterAZ = (o) => {
-        o.preventDefault();
         dispatch(filterAZ(o.target.value))
         setPage(1)
     }
@@ -78,12 +76,12 @@ export default function HomeDogs() {
                         </Link>
                     </li>
                     <li>Search</li>
-                    <li><img src={reset} className={style.reset}></img></li>
+                    <li onChange='location.reload()'><img src={reset} className={style.reset}></img></li>
                 </ul>
             </div>
 
 
-            <div className={style.search}>
+            <div className={style.filtros}>
                 <select onChange={o => handlefilterPeso(o)}>
                     <option value='peso'>Peso</option>
                     <option value='pesomin'>Peso Minimo</option>
@@ -99,9 +97,8 @@ export default function HomeDogs() {
                     <option value='db'>Creadas</option>
                     <option value='api'>Existente</option>
                 </select>
-                <label>Temperamentos: </label>
                 <select name='temperamento' value={input.temperaments} onChange={o => handlefilterTemp(o)} >
-                    <option value='ALL'>Todos</option>
+                    <option value='ALL'>Temperamentos</option>
                     {
                         allTemperaments.map(o => {
                             return <option key={o.id} value={o.name}>{o.name}</option>
@@ -120,7 +117,7 @@ export default function HomeDogs() {
                 {
                     currentDogs && currentDogs.map(o => {
                         return (
-                            <div className={style.card} key={o.id}>
+                            <div className={style.cards_dogs} key={o.id}>
                                 <Link to={`/HomeDogs/${o.id}`} style={{ textDecoration: 'none' }}>
 
                                     <Card
