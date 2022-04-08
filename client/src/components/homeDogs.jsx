@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import reset from '../img/reset.png';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterDogsApiDb, getDogs, getTemperaments, filterTemp, filterPeso, filterAZ } from '../actions/index';
@@ -7,14 +8,15 @@ import Card from './card';
 import Paginado from './Paginado';
 import style from './HomeDogs.module.css';
 
+
+
 export default function HomeDogs() {
     const dispatch = useDispatch()
     const Dogs = useSelector(state => state.dogsFilter)
     const allTemperaments = useSelector(state => state.temperaments)
-    const [, setOrden] = useState('')
     const [input] = React.useState({
         raza: '',
-        temperamento: '',
+        temperaments: '',
         peso: ''
     })
     const [currentPage, setPage] = useState(1)
@@ -50,39 +52,45 @@ export default function HomeDogs() {
 
     const handlefilterTemp = (o) => {
         dispatch(filterTemp(o.target.value))
-    } 
+    }
 
     const handlefilterPeso = (o) => {
         o.preventDefault();
         dispatch(filterPeso(o.target.value))
         setPage(1)
-        setOrden(`${o.target.value}`)
     }
 
     const handlefilterAZ = (o) => {
         o.preventDefault();
         dispatch(filterAZ(o.target.value))
         setPage(1)
-        setOrden(`${o.target.value}`)
     }
-
-
 
 
     return (
         <div className={style.body}>
-            <h1 className={style.title}>Dogs</h1>
             <div>
-                <Link to='/DogCreate' style={{ textDecoration: 'none' }}>
-                    <span className={style.dog_create}>Crear dog</span>
-                </Link>
+                <ul className={style.navegacion}>
+                    <li>Logo</li>
+                    <li>
+                        <Link to='/DogCreate' style={{ textDecoration: 'none' }}>
+                            <span className={style.link}>Crear dog</span>
+                        </Link>
+                    </li>
+                    <li>Search</li>
+                    <li><img src={reset} className={style.reset}></img></li>
+                </ul>
             </div>
+
+
             <div className={style.search}>
-            <select onChange={o => handlefilterPeso(o)}>
+                <select onChange={o => handlefilterPeso(o)}>
+                    <option value='peso'>Peso</option>
                     <option value='pesomin'>Peso Minimo</option>
                     <option value='pesomax'>Peso Maximo</option>
                 </select>
                 <select onChange={o => handlefilterAZ(o)}>
+                    <option value='ordenar'>Ordenar</option>
                     <option value='a_z'>Ordenar A-Z</option>
                     <option value='z_a'>Ordenar Z-A</option>
                 </select>
@@ -92,7 +100,7 @@ export default function HomeDogs() {
                     <option value='api'>Existente</option>
                 </select>
                 <label>Temperamentos: </label>
-                <select name='temperamento' value={input.temperamento} onChange={o => handlefilterTemp(o)} >
+                <select name='temperamento' value={input.temperaments} onChange={o => handlefilterTemp(o)} >
                     <option value='ALL'>Todos</option>
                     {
                         allTemperaments.map(o => {
@@ -113,13 +121,13 @@ export default function HomeDogs() {
                     currentDogs && currentDogs.map(o => {
                         return (
                             <div className={style.card} key={o.id}>
-                                <Link to={`/HomeDogs/${o.id}`}  style={{ textDecoration: 'none' }}>
+                                <Link to={`/HomeDogs/${o.id}`} style={{ textDecoration: 'none' }}>
 
                                     <Card
                                         raza={o.raza}
                                         img={o.img}
                                         peso={o.peso}
-                                        temperamento={o.temperamento} />
+                                        temperaments={o.temperaments} />
 
                                 </Link>
                             </div>

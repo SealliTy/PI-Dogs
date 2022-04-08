@@ -4,14 +4,16 @@
     box-sizing: border-box;
 }
 
-
+.body {
+    background-image: url(../img/19187720.jpg);
+}
 
 .card_container {
     display: grid;
-    grid-template-columns: repeat(4, 30vw);
+    grid-template-columns: repeat(4, 400px);
     justify-content: center;
+    align-items: center;
 }
-
 
 .title {
     display: flex;
@@ -22,16 +24,32 @@
     color: #0868FF;
 }
 
-.dog_create {
-    display: flex;
-    justify-content: flex-end;
-    color: #3C88FF;
-    font-family: 'Jelly Anika';
-    font-size: 40px;
-}
+
 
 .search {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
 }
+
+.link {
+    color: #fff;
+}
+
+.navegacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #fff;
+    font-size: 50px;
+    color: #fff;
+}
+
+.reset {
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    width: 70px;
+}
+
+

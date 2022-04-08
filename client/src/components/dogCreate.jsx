@@ -9,7 +9,7 @@ export default function DogCreate(){
     const allTemperaments = useSelector(state => state.temperaments)
     const [dog, setDog] = React.useState({
         raza:'',
-        temperamento:[],
+        temperaments:[],
         img:'',
         peso:'',
         altura:'',
@@ -33,24 +33,24 @@ export default function DogCreate(){
     } 
 
     const handleSelect = (o) => {
-        if(!dog.temperamento.includes(o.target.value))
+        if(!dog.temperaments.includes(o.target.value))
             setDog({
                 ...dog,
-                temperamento: [...dog.temperamento, o.target.value]
+                temperaments: [...dog.temperaments, o.target.value]
             })
     }
 
     const handleDelete = (e) => {
         setDog({
           ...dog,
-          temperamento: dog.temperamento.filter((o) => o !== e),
+          temperaments: dog.temperaments.filter((o) => o !== e),
         });
       };
 
 
     return (
         <div className={style.body}>
-            <form className={style.form} onSubmit={handleClick}>
+            <form className={style.form} onSubmit={(o) => handleClick(o)}>
                 <h2 className={style.h2}>Crea tu perro</h2>
                 <input className={style.input} placeholder='Raza' type='text' name='raza' value={dog.raza} onChange={handleChange}></input>
                 <input className={style.input} placeholder='Imagen del cachorro' name='img' value={dog.img} onChange={handleChange}></input>
@@ -66,13 +66,13 @@ export default function DogCreate(){
                     }
                 </select>
                 <ul>
-                    {dog.temperamento.map(o => {
+                    {dog.temperaments.map(o => {
                         return (
-                    <button key={dog.temperamento.indexOf(o)} onClick={() => handleDelete(o)}>{o}
+                    <button key={dog.temperaments.indexOf(o)} onClick={() => handleDelete(o)}>{o}
                     </button>
                     )})}
                 </ul>
-                <button className={style.create_button} type='submit' onChange={handleClick}>Create</button>
+                <button className={style.create_button} type='submit'>Create</button>
             </form>
         </div>
     )

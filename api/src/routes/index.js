@@ -19,9 +19,9 @@ const apiDog = async () => {
         return {
             id: o.id,
             raza: o.name,
-            temperamento: o.temperament ? o.temperament : 'Dont have temperament',
+            temperaments: o.temperament ? o.temperament : 'Dont have temperament',
             img: o.image.url,
-            peso: o.weight.metric,
+            peso: o.weight.metric === 'NaN' ? '0' : o.weight.metric,
             altura: o.height.metric,
             añosVida: o.life_span,
         }
@@ -38,7 +38,19 @@ const dbDog = async () => {
 const allDogs = async () => {
     const apiInf = await apiDog();
     const dbInfo = await dbDog();
-    const concat = apiInf.concat(dbInfo);
+    const newDb = dbInfo.map(o => {
+        return {
+          "id": o.id,
+          "raza": o.raza,
+          "img": o.img,
+          "peso": o.peso,
+          "altura": o.altura,
+          "añosVida": o.añosVida,
+          "createdAt": o.createdAt,
+          "temperaments": o.temperaments.map(o => o.name).join()
+        }
+      })
+    const concat = apiInf.concat(newDb);
     return concat;
 }
 
@@ -59,7 +71,6 @@ router.get('/dogs', async (req, res) => {
         const {idRaza} = req.params;
         const fullDogs = await allDogs();
         const dog = fullDogs.find(o => o.id == idRaza)
-        console.log(dog)
             dog ?
              res.status(200).send(dog)
             :
@@ -70,7 +81,7 @@ router.get('/dogs', async (req, res) => {
     router.get('/temperament', async (req, res) => {
         const apiTemperament = await apiDog();
         const temperamentMap = apiTemperament.map(o => {
-            if(o.temperamento) return o.temperamento
+            if(o.temperaments) return o.temperaments
             else{
                 return 'Dont have temperament'
             }
@@ -93,7 +104,7 @@ router.get('/dogs', async (req, res) => {
     router.post('/dog', async (req, res) => {
         const {
             raza,
-            temperamento,
+            temperaments,
             img,
             peso,
             altura,
@@ -101,15 +112,15 @@ router.get('/dogs', async (req, res) => {
         } = req.body
     
         const newDog = await Dogs.create({
-            raza: raza,
-            temperamento: temperamento,
-            img: img,
-            peso: peso,
-            altura: altura,
-            añosVida: añosVida
+            raza,
+            temperaments,
+            img,
+            peso,
+            altura,
+            añosVida
         })
         const temperamentdb = await Temperaments.findAll({
-            where: {name: temperamento}
+            where: {name: temperaments}
         })
         newDog.addTemperaments(temperamentdb);
         res.send('Perro creado')

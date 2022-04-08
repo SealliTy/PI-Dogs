@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDogId } from '../actions/index';
-import Card from './card';
 import {useParams} from 'react-router-dom';
 
 export default function DogDetail() {
@@ -14,18 +13,17 @@ export default function DogDetail() {
         dispatch(getDogId(params.id))
     }, [dispatch, params.id])
 
-        if(Dog)
+        if(Dog){
             return (
-                <Card
-                    key={Dog.id}
-                    raza={Dog.raza}
-                    img={Dog.img}
-                    peso={Dog.peso}
-                    altura={Dog.altura}
-                    añosVida={Dog.añosVida}
-                    temperamento={Dog.temperamento}
-                    />
-            )
+                <div>
+                    <h2>{Dog.raza}</h2>
+                    <img src={Dog.img} />
+                    <h4>{Dog.peso}</h4>
+                    <h4>{Dog.altura}</h4>
+                    <h4>{Dog.añosVida}</h4>
+                    {Dog.temperaments}
+                </div>
+            )}
             else{
                 return 'Dont have dog'
             }

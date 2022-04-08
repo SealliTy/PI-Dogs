@@ -12,10 +12,52 @@
     background-repeat: no-repeat;
 }
 
-.h1 {
+.content {
     display: flex;
-    justify-content: center;
+	justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
+
+.huella {
+    height: 100px;
+    padding-left: 40px;
+    border-left: 5px solid #9F9F9F;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+}
+
+.h1 {
+    height: 100px;
+    padding-right: 40px;
+    font-family: 'Jelly Anika';
+    font-size: 100px;
+    color: #FE3E3E;
+    border-right: 5px solid #9F9F9F;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.huella:hover {
+    height: 200px;
+    padding-left: 40px;
+    border-left: 5px solid #73FE3E;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+}
+
+.h1:hover {
+    height: 200px;
+    padding-right: 40px;
+    font-family: 'Jelly Anika';
+    font-size: 200px;
+    color: #FE3E3E;
+    border-right: 5px solid #73FE3E;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+
 
 
 
