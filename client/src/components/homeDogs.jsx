@@ -64,19 +64,24 @@ export default function HomeDogs() {
         setPage(1)
     }
 
+    const resetPage = () => {
+        dispatch(getDogs())
+        dispatch(getTemperaments())
+    }
+
 
     return (
         <div className={style.body}>
             <div>
                 <ul className={style.navegacion}>
-                    <li>Logo</li>
+                    <li></li>
                     <li>
                         <Link to='/DogCreate' style={{ textDecoration: 'none' }}>
                             <span className={style.link}>Crear dog</span>
                         </Link>
                     </li>
-                    <li>Search</li>
-                    <li onChange='location.reload()'><img src={reset} className={style.reset}></img></li>
+                    <li><input placeholder='Search...' className={style.search} type='text' name='search'></input></li>
+                    <li onClick={o => resetPage(o)}><img src={reset} alt='reset' className={style.reset}></img></li>
                 </ul>
             </div>
 

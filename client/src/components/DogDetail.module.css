@@ -1,0 +1,80 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/19187720.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.dog_detail {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(1, 23, 126, .5);
+    border: 3px solid #8BA0FF;
+    box-shadow: 0 0 10px #8BA0FF;
+    width: 420px;
+    color: #fff;
+}
+
+.img {
+    border: 1px solid #fff;
+    box-shadow: 0 0 5px #fff;
+    border-radius: 5% 5% 10% 10%;
+    margin: 10px;
+    height: 397px;
+    width: 397px;
+}
+
+.medidas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.raza {
+    font-family: 'Jelly Anika';
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+p span {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'Jelly Anika';
+    font-size: 25px;
+}
+
+.temperaments {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'LiSu';
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.peso {
+    color: #8FFF61;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-family: 'LiSu';
+    font-size: 20px;
+}
+
+.altura {
+    margin-right: 20px;
+    font-family: 'LiSu';
+    font-size: 20px;
+}
+
+.años {
+    margin-left: 20px;
+    font-family: 'LiSu';
+    font-size: 20px;
+}

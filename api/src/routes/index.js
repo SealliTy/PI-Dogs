@@ -12,7 +12,7 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 const apiDog = async () => {
-    //const dogUrl = await axios.get(`https://api.thedogapi.com/v1/breeds${apiKey}`) //descomentar al finalizar
+    //const dogUrl = await axios.get(`https://api.thedogapi.com/v1/breeds${apiKey}`)
     const dogUrl = data; // sacar esta linea
     //const razaUrl = await dogUrl.data.map(o => { //descomentar al finalizar
     const razaUrl = dogUrl.map(o => { // sacar esta linea
