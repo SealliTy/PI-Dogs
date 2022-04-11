@@ -29,6 +29,12 @@
     text-align: center;
 }
 
+.paginado_item button:hover {
+    color: #D9FF61;
+    border: 3px solid #D9FF61;
+    box-shadow: 0 0 10px #D9FF61;
+}
+
 ul {
     list-style: none;
 }

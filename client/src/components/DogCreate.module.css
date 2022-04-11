@@ -18,8 +18,8 @@
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    width: 40%;
-    height: 70%;
+    width: 50%;
+    height: 80%;
     background-color: #282828;
     margin-top: 80px;
     padding: 10px;
@@ -40,12 +40,24 @@
     font-size: 30px;
 }
 
+.create_button:hover {
+    background-color: #D9FF61;
+}
+
 .input {
     border: 1px solid #350086;
+    box-shadow: 0 0 5px #350086;
     font-family: 'Jelly Anika';
     font-size: 30px;
     text-align: center;
     padding: 5px;
+    width: 50%;
+}
+
+input:hover {
+    color: #D9FF61;
+    border: 3px solid #D9FF61;
+    box-shadow: 0 0 5px #D9FF61;
 }
 
 input, select, button{
@@ -53,4 +65,42 @@ input, select, button{
     margin: 5px;
     border: none;
 }
+
+.contain_temp {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 10px;
+    align-items: center;
+}
+
+.temperamentos {
+    color: #fff;
+    font-family: 'Jelly Anika';
+    font-size: 40px;
+}
+
+.temperaments {
+    background-color: #8230FF;
+    width: 35%;
+    font-family: 'Jelly Anika';
+    font-size: 30px;
+    text-align: center;
+    padding: 5px;
+}
+
+.temperaments:hover {
+    background-color: #D9FF61;
+}
+
+.ul {
+    background-color: #8230FF;
+    font-family: 'Jelly Anika';
+    font-size: 30px;
+    padding: 5px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+
 

@@ -30,8 +30,14 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 temperaments: action.payload
             }
+        case 'SEARCH_DOG':
+            return{
+                ...state,
+                dogsFilter: action.payload
+            }
+    
         case 'FILTER_DB_API':
-            const allDogs = state.dogs;
+            const allDogs = state.dogsFilter;
             if (action.payload === 'api') {
                 const filtro = allDogs.filter(o => !o.createdAt)
                 return {
@@ -57,8 +63,9 @@ function rootReducer(state = initialState, action) {
                 dogsFilter: filtro
             }
         case 'FILTER_AZ':
-            const dogsAZ = state.dogs;
+            const dogsAZ = state.dogsFilter;
             let filtroAz = []
+            if(action.payload === 'ordenar') return {...state, dogsFilter: dogsAZ};
             if (action.payload === 'a_z') {
                 filtroAz = [...dogsAZ].sort(function (a, b) {
                     if (a.raza > b.raza) return 1
@@ -80,7 +87,11 @@ function rootReducer(state = initialState, action) {
                 dogsFilter: filtroAz
             }
         case 'FILTER_PESO':
-            const dogsPeso = state.dogs;
+            const dogsPeso = state.dogsFilter;
+            if(action.payload === 'peso') return {
+                ...state,
+                dogsFilter: dogsPeso
+            }
             const filtroPeso = action.payload === 'pesomin' ? [...dogsPeso].sort(function (a, b) {
                 if (parseInt(a.peso.slice(0, 2)) > parseInt(b.peso.slice(0, 2))) return 1
                 if (parseInt(b.peso.slice(0, 2)) > parseInt(a.peso.slice(0, 2))) return -1

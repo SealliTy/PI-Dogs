@@ -2,22 +2,23 @@ import React, { useState } from 'react';
 import reset from '../img/reset.png';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterDogsApiDb, getDogs, getTemperaments, filterTemp, filterPeso, filterAZ } from '../actions/index';
+import { filterDogsApiDb, getDogs, getTemperaments, filterTemp, filterPeso, filterAZ} from '../actions/index';
 import { Link } from 'react-router-dom';
 import Card from './card';
 import Paginado from './Paginado';
 import style from './HomeDogs.module.css';
-
+import SearchBar from './SearchBar'
 
 
 export default function HomeDogs() {
     const dispatch = useDispatch()
     const Dogs = useSelector(state => state.dogsFilter)
     const allTemperaments = useSelector(state => state.temperaments)
-    const [input] = React.useState({
+    const [input, setInput] = React.useState({
         raza: '',
         temperaments: '',
-        peso: ''
+        peso: '',
+        api_db: '',
     })
     const [currentPage, setPage] = useState(1)
     const dogsPerPage = 8;
@@ -33,40 +34,53 @@ export default function HomeDogs() {
         dispatch(getTemperaments())
     }, [dispatch])
 
-    // function handleClick(e) {
-    //     e.preventDefault();
-    //     dispatch(getDogs());
-    //     dispatch(getTemperaments(input));
-    // }
-
-    // const handleChange = (e) => {
-    //     setInput({
-    //         ...input,
-    //         [e.target.name]: e.target.value
-    //     })
-    // }
-
     const handlefilterDogs = (o) => {
         dispatch(filterDogsApiDb(o.target.value))
+        setInput({
+            ...input,
+            api_db: o.target.value
+        })
     }
 
     const handlefilterTemp = (o) => {
         dispatch(filterTemp(o.target.value))
+        setInput({
+            ...input,
+            temperaments: o.target.value
+        })
     }
 
     const handlefilterPeso = (o) => {
         dispatch(filterPeso(o.target.value))
         setPage(1)
+        setInput({
+            ...input,
+            peso: o.target.value
+        })
     }
 
     const handlefilterAZ = (o) => {
         dispatch(filterAZ(o.target.value))
         setPage(1)
+        setInput({
+            ...input,
+            raza: o.target.value
+        })
     }
 
     const resetPage = () => {
         dispatch(getDogs())
         dispatch(getTemperaments())
+        dispatch(filterAZ('ordenar'))
+        dispatch(filterPeso('peso'))
+        dispatch(filterTemp('ALL'))
+        dispatch(filterDogsApiDb('api_db'))
+        setInput({
+            raza: '',
+            temperaments: '',
+            peso: '',
+            api_db: ''
+        })
     }
 
 
@@ -74,30 +88,31 @@ export default function HomeDogs() {
         <div className={style.body}>
             <div>
                 <ul className={style.navegacion}>
-                    <li></li>
                     <li>
                         <Link to='/DogCreate' style={{ textDecoration: 'none' }}>
                             <span className={style.link}>Crear dog</span>
                         </Link>
                     </li>
-                    <li><input placeholder='Search...' className={style.search} type='text' name='search'></input></li>
+                    <li className={style.search}>
+                            <SearchBar />
+                    </li>
                     <li onClick={o => resetPage(o)}><img src={reset} alt='reset' className={style.reset}></img></li>
                 </ul>
             </div>
 
 
             <div className={style.filtros}>
-                <select onChange={o => handlefilterPeso(o)}>
+                <select onChange={o => handlefilterPeso(o)} value={input.peso}>
                     <option value='peso'>Peso</option>
                     <option value='pesomin'>Peso Minimo</option>
                     <option value='pesomax'>Peso Maximo</option>
                 </select>
-                <select onChange={o => handlefilterAZ(o)}>
+                <select onChange={o => handlefilterAZ(o)} value={input.raza}>
                     <option value='ordenar'>Ordenar</option>
                     <option value='a_z'>Ordenar A-Z</option>
                     <option value='z_a'>Ordenar Z-A</option>
                 </select>
-                <select onChange={o => handlefilterDogs(o)}>
+                <select onChange={o => handlefilterDogs(o)} value={input.api_db}>
                     <option value='api_db'>Todas</option>
                     <option value='db'>Creadas</option>
                     <option value='api'>Existente</option>

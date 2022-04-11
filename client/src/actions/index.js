@@ -40,6 +40,17 @@ export function dogCreate(dog){
     }
 }
 
+export function SearchDog(payload){
+    return async function (dispatch){
+        const json = await axios.get(`http://localhost:3001/dogs?name=${payload}`);
+        return dispatch({
+            type: 'SEARCH_DOG',
+            payload: json.data,
+    })
+    }
+}
+
+
 export function filterDogsApiDb(payload){
     return {
         type: 'FILTER_DB_API',
@@ -67,3 +78,4 @@ export function filterAZ(payload){
         payload: payload
     }
 }
+

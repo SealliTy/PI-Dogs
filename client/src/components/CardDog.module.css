@@ -10,6 +10,11 @@
     margin-top: 20px;
 }
 
+.dog_card:hover {
+    border: 3px solid #D9FF61;
+    box-shadow: 0 0 5px #D9FF61;
+}
+
 p span {
     display: flex;
     flex-direction: column;

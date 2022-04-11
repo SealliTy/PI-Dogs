@@ -43,8 +43,25 @@
     margin-top: 100px;
 }
 
+.filtros select:hover {
+    color: #D9FF61;
+    border: 3px solid #D9FF61;
+    box-shadow: 0 0 5px #D9FF61;
+}
+
 .link {
     color: #fff;
+    font-size: 30px;
+    border: 3px solid #8BA0FF;
+    box-shadow: 0 0 10px #8BA0FF;
+    padding: 5px;
+    margin-right: 200px;
+}
+
+.link:hover {
+    color: #D9FF61;
+    border: 3px solid #D9FF61;
+    box-shadow: 0 0 10px #D9FF61;
 }
 
 .navegacion {
@@ -63,14 +80,6 @@
     justify-content: center;
     height: 70px;
     width: 70px;
-}
-
-.search {
-    background-color: rgba(255, 255, 255, .8);
-    padding-left: 10px;
-    font-family: 'Jelly Anika';
-    font-size: 30px;
-    border-radius: 20% 5%;
 }
 
 
