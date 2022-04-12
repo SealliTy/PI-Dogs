@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTemperaments, dogCreate } from '../actions';
 import style from './DogCreate.module.css';
+import {Link} from 'react-router-dom'
 
 
 
@@ -44,9 +45,9 @@ export default function DogCreate() {
         if (dog.añosVida === '') {
             errors.añosVida = 'Se requiere sus años de vida'
         }
-        // if (dog.temperaments === '') {
-        //     errors.temperaments = 'Se requiere minimo 1 temperamento'
-        // }
+        if (dog.temperaments.length === 0) {
+            errors.temperaments = 'Se requiere minimo 1 temperamento'
+        }
 
         return errors;
     }
@@ -102,51 +103,61 @@ export default function DogCreate() {
 
     return (
         <div className={style.body}>
+            <div className={style.link}>
+            <Link to='/HomeDogs' style={{ textDecoration: 'none' }}>
+                    <span className={style.back}>Back</span>
+                </Link>
+                </div>
             <form className={style.form} onSubmit={(o) => handleClick(o)}>
-                <h2 className={style.h2}>Crea tu perro</h2>
-                <div>
+                <h2 className={style.h2}>Dog Create</h2>
+                <div className={style.input_form} >
                     <input className={style.input} placeholder='Raza' type='text' name='raza' value={dog.raza} onChange={handleChange}></input>
                     {
                         errors.raza &&
-                        <p>{errors.raza}</p>
+                        <p className={style.p} >{errors.raza}</p>
                     }
                 </div>
-                <div>
+                <div className={style.input_form} >
                     <input className={style.input} placeholder='Imagen del cachorro' name='img' value={dog.img} onChange={handleChange}></input>
                     {
 
                     }
                 </div>
-                <div>
+                <div className={style.input_form} >
                     <input className={style.input} placeholder='Peso Kgs' type='number' name='peso' value={dog.peso} min={1} max={99} onChange={handleChange}></input>
                     {
                         errors.peso &&
-                        <p>{errors.peso}</p>
+                        <p className={style.p} >{errors.peso}</p>
                     }
                 </div>
-                <div>
+                <div className={style.input_form} >
                     <input className={style.input} placeholder='Altura Cms' type='number' name='altura' value={dog.altura} min={1} max={99} onChange={handleChange}></input>
                     {
                         errors.altura &&
-                        <p>{errors.altura}</p>
+                        <p className={style.p} >{errors.altura}</p>
                     }
                 </div>
-                <div>
+                <div className={style.input_form} >
                     <input className={style.input} placeholder='Años del cachorro' type='number' name='añosVida' value={dog.añosVida} min={1} max={99} onChange={handleChange}></input>
                     {
                         errors.añosVida &&
-                        <p>{errors.añosVida}</p>
+                        <p className={style.p} >{errors.añosVida}</p>
                     }
                 </div>
                 <div className={style.contain_temp}>
-                    <p className={style.temperamentos}>Temperamentos:</p>
+                    {/* <p className={style.temperamentos}>Temperamentos:</p> */}
                     <select className={style.temperaments} onChange={(o) => handleSelect(o)}>
+                        <option>Temperaments:</option>
                         {
                             allTemperaments.map(o => {
-                                return <option className={style.temperament} key={o.id} value={o.name}>{o.name}</option>
+                                return <option key={o.id} value={o.name}>{o.name}</option>
                             })
                         }
                     </select>
+                        {
+                            errors.temperaments &&
+                            <p className={style.p} >{errors.temperaments}</p>
+                        }
                 </div>
                 <ul>
                     {dog.temperaments.map(o => {

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { SearchDog } from '../actions/index';
 import style from '../components/SearchBar.module.css';
 
-export default function SearchBar() {
+export default function SearchBar({setPage}) {
   const [state, setState] = useState('');
   const dispatch = useDispatch();
 
@@ -16,6 +16,7 @@ export default function SearchBar() {
     o.preventDefault();
     if (state !== '') {
       dispatch(SearchDog(state));
+      setPage(1)
       setState('');
     }
   };
@@ -25,7 +26,7 @@ export default function SearchBar() {
       <input
         className={style.search}
         type="text"
-        placeholder="Busca por Raza..."
+        placeholder="Search for name..."
         value={state}
         onChange={o => handleChange(o)}
       />

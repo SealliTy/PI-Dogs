@@ -1,16 +1,33 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 .body {
-    height: 100vh;
-    background-image: url(../img/19187720.jpg);
-    background-size: cover;
-    background-position: center;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back {
+    font-family: 'Jelly Anika';
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 100px;
+    color: #000;
+    padding: 5px;
+    border-radius: 25px;
+    background-color: #fff;
+}
+
+.back:hover{
+    background-color: #8230FF;
+    color: #8FFF61;
+    font-size: 40px;
 }
 
 .form {
@@ -18,10 +35,10 @@
     flex-direction: column;
     text-align: center;
     justify-content: center;
+    margin-top: 20px;
     width: 50%;
     height: 80%;
     background-color: #282828;
-    margin-top: 80px;
     padding: 10px;
 }
 
@@ -68,7 +85,7 @@ input, select, button{
 
 .contain_temp {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     margin-left: 10px;
     align-items: center;
@@ -82,7 +99,7 @@ input, select, button{
 
 .temperaments {
     background-color: #8230FF;
-    width: 35%;
+    width: 70%;
     font-family: 'Jelly Anika';
     font-size: 30px;
     text-align: center;
@@ -90,6 +107,10 @@ input, select, button{
 }
 
 .temperaments:hover {
+    background-color: #D9FF61;
+}
+
+.ul:hover {
     background-color: #D9FF61;
 }
 
@@ -102,5 +123,17 @@ input, select, button{
     text-align: center;
 }
 
+.input_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.p {
+    color: #91ff00;
+    font-family: 'Jelly Anika';
+    font-size: 20px;
+}
 
 

@@ -14,6 +14,7 @@ function App() {
         <Route exact path='/HomeDogs' element={<HomeDogs />} />
         <Route exact path='/DogCreate' element={<DogCreate />} />
         <Route exact path='/HomeDogs/:id' element={<DogDetail />} />
+        <Route path='*' element={<HomeDogs />} />
       </Routes> 
       
     </div>

@@ -38,7 +38,7 @@ export default function HomeDogs() {
         dispatch(filterDogsApiDb(o.target.value))
         setInput({
             ...input,
-            api_db: o.target.value
+            api_db: o.target.value,
         })
     }
 
@@ -46,7 +46,7 @@ export default function HomeDogs() {
         dispatch(filterTemp(o.target.value))
         setInput({
             ...input,
-            temperaments: o.target.value
+            temperaments: o.target.value,
         })
     }
 
@@ -55,7 +55,7 @@ export default function HomeDogs() {
         setPage(1)
         setInput({
             ...input,
-            peso: o.target.value
+            peso: o.target.value,
         })
     }
 
@@ -64,7 +64,7 @@ export default function HomeDogs() {
         setPage(1)
         setInput({
             ...input,
-            raza: o.target.value
+            raza: o.target.value,
         })
     }
 
@@ -75,6 +75,7 @@ export default function HomeDogs() {
         dispatch(filterPeso('peso'))
         dispatch(filterTemp('ALL'))
         dispatch(filterDogsApiDb('api_db'))
+        setPage(1)
         setInput({
             raza: '',
             temperaments: '',
@@ -90,11 +91,13 @@ export default function HomeDogs() {
                 <ul className={style.navegacion}>
                     <li>
                         <Link to='/DogCreate' style={{ textDecoration: 'none' }}>
-                            <span className={style.link}>Crear dog</span>
+                            <span className={style.link}>Create Dog</span>
                         </Link>
                     </li>
                     <li className={style.search}>
-                            <SearchBar />
+                            <SearchBar 
+                                setPage = {setPage}
+                            />
                     </li>
                     <li onClick={o => resetPage(o)}><img src={reset} alt='reset' className={style.reset}></img></li>
                 </ul>

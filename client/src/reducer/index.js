@@ -37,8 +37,8 @@ function rootReducer(state = initialState, action) {
             }
     
         case 'FILTER_DB_API':
-            const allDogs = state.dogsFilter;
             if (action.payload === 'api') {
+                const allDogs = state.dogs;
                 const filtro = allDogs.filter(o => !o.createdAt)
                 return {
                     ...state,
@@ -46,6 +46,7 @@ function rootReducer(state = initialState, action) {
                 }
             }
             else if (action.payload === 'db') {
+                const allDogs = state.dogs;
                 const filtro = allDogs.filter(o => o.createdAt)
                 return {
                     ...state,
@@ -53,7 +54,7 @@ function rootReducer(state = initialState, action) {
                 }
             } else return {
                 ...state,
-                dogsFilter: state.dogs
+                dogs: state.dogs
             }
         case 'FILTER_TEMP':
             const Dogs = state.dogs;
@@ -68,15 +69,15 @@ function rootReducer(state = initialState, action) {
             if(action.payload === 'ordenar') return {...state, dogsFilter: dogsAZ};
             if (action.payload === 'a_z') {
                 filtroAz = [...dogsAZ].sort(function (a, b) {
-                    if (a.raza > b.raza) return 1
-                    if (b.raza > a.raza) return -1
+                    if (a.raza.toLowerCase() > b.raza.toLowerCase()) return 1
+                    if (b.raza.toLowerCase() > a.raza.toLowerCase()) return -1
                     return 0
                 }
                 )
             } else {
                 filtroAz = [...dogsAZ].sort(function (a, b) {
-                    if (a.raza > b.raza) return -1
-                    if (b.raza > a.raza) return 1
+                    if (a.raza.toLowerCase() > b.raza.toLowerCase()) return -1
+                    if (b.raza.toLowerCase() > a.raza.toLowerCase()) return 1
                     return 0
 
                 }

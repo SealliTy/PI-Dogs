@@ -2,10 +2,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../img/19187720.jpg);
-    background-position: center;
-    background-size: cover;
     height: 100vh;
+}
+
+.back {
+    font-family: 'Jelly Anika';
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 100px;
+    background-color: #fff;
+    color: #000;
+    padding: 5px;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.back:hover{
+    color: #8FFF61;
+    font-size: 40px;
+    background-color: #8BA0FF;
 }
 
 .dog_detail {
@@ -77,4 +92,19 @@ p span {
     margin-left: 20px;
     font-family: 'LiSu';
     font-size: 20px;
+}
+
+.contain_error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+
+.error {
+    font-family: 'Jelly Anika';
+    font-size: 50px;
+    color: #fff;
+    text-shadow: 0 0 5px #fff;
 }
