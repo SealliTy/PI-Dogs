@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "https://pi-dogs-eosin.vercel.app" || "http://localhost:3001";
+const BASE_URL = process.env.CORS_URL || "http://localhost:3001";
 
 export function getDogs() {
   return async function (dispatch) {
