@@ -2,7 +2,7 @@ const { Router } = require('express');
 const axios = require('axios');
 const { Temperaments, Dogs } = require('../db');
 const {sequelize} = require('sequelize');
-//const data = require('../database/breeds'); // sacar esta linea
+const data = require('../database/breeds'); // sacar esta linea
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -12,10 +12,10 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 const apiDog = async () => {
-    const dogUrl = await axios.get(`https://api.thedogapi.com/v1/breeds${apiKey}`)
-    //const dogUrl = data; // sacar esta linea
-    const razaUrl = await dogUrl.data.map(o => { //descomentar al finalizar
-    //const razaUrl = dogUrl.map(o => { // sacar esta linea
+    // const dogUrl = await axios.get(`https://api.thedogapi.com/v1/breeds${apiKey}`)
+    const dogUrl = data; // sacar esta linea
+    //const razaUrl = await dogUrl.data.map(o => { //descomentar al finalizar
+    const razaUrl = dogUrl.map(o => { // sacar esta linea
         return {
             id: o.id,
             raza: o.name,
@@ -106,18 +106,21 @@ router.get('/dogs', async (req, res) => {
             raza,
             temperaments,
             img,
-            peso,
-            altura,
-            añosVida
+            pesomin,
+            pesomax,
+            alturamin,
+            alturamax,
+            añosVidamin,
+            añosVidamax
         } = req.body
     
         const newDog = await Dogs.create({
             raza,
             temperaments,
             img,
-            peso,
-            altura,
-            añosVida
+            peso: pesomin.concat(` - ${pesomax}`),
+            altura: alturamin.concat(` - ${alturamax}`),
+            añosVida: añosVidamin.concat(` - ${añosVidamax}`)
         })
         const temperamentdb = await Temperaments.findAll({
             where: {name: temperaments}
