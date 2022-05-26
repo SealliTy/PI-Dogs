@@ -111,9 +111,9 @@ export default function HomeDogs() {
           <li className={style.search}>
             <SearchBar setPage={setPage} />
           </li>
-          <li onClick={(o) => resetPage(o)}>
+          {/* <li onClick={(o) => resetPage(o)}>
             <img src={reset} alt="reset" className={style.reset} />
-          </li>
+          </li> */}
         </ul>
       </div>
 
