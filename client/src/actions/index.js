@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = process.env.CORS_URL || "http://localhost:3001";
+const BASE_URL = "https://appdogs1.herokuapp.com";
 
 export function getDogs() {
   return async function (dispatch) {
