@@ -2,7 +2,7 @@ import axios from "axios";
 
 export function getDogs() {
   return async function (dispatch) {
-    const json = await axios.get("https://dogsapp-eight.vercel.app/dogs");
+    const json = await axios.get("https://pi-dogs-eosin.vercel.app/dogs");
     return dispatch({
       type: "DOGS",
       payload: json.data,
@@ -13,7 +13,7 @@ export function getDogs() {
 export function getTemperaments() {
   return async function (dispatch) {
     const json = await axios.get(
-      "https://dogsapp-eight.vercel.app/temperament"
+      "https://pi-dogs-eosin.vercel.app/temperament"
     );
     return dispatch({
       type: "TEMPERAMENT",
@@ -26,7 +26,7 @@ export function getDogId(id) {
   return async function (dispatch) {
     try {
       const json = await axios.get(
-        `https://dogsapp-eight.vercel.app/dogs/${id}`
+        `https://pi-dogs-eosin.vercel.app/dogs/${id}`
       );
       return dispatch({
         type: "DOG_ID",
@@ -40,7 +40,7 @@ export function getDogId(id) {
 
 export function dogCreate(dog) {
   return async function (dispatch) {
-    const json = await axios.post("https://dogsapp-eight.vercel.app/dog", dog);
+    const json = await axios.post("https://pi-dogs-eosin.vercel.app/dog", dog);
     return dispatch({
       type: "DOG_CREATE",
       payload: json,
@@ -51,7 +51,7 @@ export function dogCreate(dog) {
 export function SearchDog(payload) {
   return async function (dispatch) {
     const json = await axios.get(
-      `https://dogsapp-eight.vercel.app/dogs?name=${payload}`
+      `https://pi-dogs-eosin.vercel.app/dogs?name=${payload}`
     );
     return dispatch({
       type: "SEARCH_DOG",
