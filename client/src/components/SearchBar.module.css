@@ -1,10 +1,17 @@
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .search {
+    align-items: center;
+    margin-top: 5px;
     font-family: 'Jelly Anika';
     font-size: 30px;
     border: none;
     border: 3px solid #8BA0FF;
     box-shadow: 0 0 10px #8BA0FF;
-    margin-right: 200px;
     text-align: center;
     padding: 2px;
     border-radius: 25px;
@@ -18,4 +25,9 @@ input {
     color: #D9FF61;
     border: 3px solid #D9FF61;
     box-shadow: 0 0 10px #D9FF61;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
 }

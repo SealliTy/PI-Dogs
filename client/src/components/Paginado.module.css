@@ -1,23 +1,18 @@
+.nav {
+    display: flex;
+    justify-content: center;
+}
 
 .paginado_flex {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     margin-top: 7px;
-}
-
-.paginado_item {
-    display: flex;
-    justify-content: center;
-    margin-left: 5px;
-    margin-right: 5px;
 }
 
 .paginado_item button {
     width: 30px;
     height: 30px;
-    padding: 0;
-    margin: 0;
     border: none;
     border-radius: 25% 5% 25% 25%;
     background-color: rgba(1, 23, 126, .8);

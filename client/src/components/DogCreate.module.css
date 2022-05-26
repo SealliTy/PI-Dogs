@@ -30,6 +30,54 @@
     font-size: 40px;
 }
 
+.h2 {
+    color: #fff;
+    font-family: 'Jelly Anika';
+    font-size: 60px;
+    font-weight: normal;
+    border-bottom: 1px solid #CECECE;
+    margin-bottom: 30px;
+}
+
+.create_button {
+    background-color: #8230FF;
+    color: #fff;
+    font-family: 'Jelly Anika';
+    font-size: 30px;
+}
+
+.create_button:hover {
+    background-color: #D9FF61;
+    color: #000;
+}
+
+
+input, select, button{
+    background-color: transparent;
+    margin: 5px;
+    border: none;
+}
+
+
+
+/* --------------------INPUT RAZA, IMG, TEMPERAMENTOS, PESO, ALTURA Y AÑOS------------------- */
+
+.input {
+    border: 1px solid #350086;
+    box-shadow: 0 0 5px #350086;
+    font-family: 'Jelly Anika';
+    font-size: 25px;
+    text-align: center;
+    padding: 10px;
+    width: 50%;
+}
+
+input:hover {
+    color: #D9FF61;
+    border: 3px solid #D9FF61;
+    box-shadow: 0 0 5px #D9FF61;
+}
+
 .form {
     display: flex;
     flex-direction: column;
@@ -42,45 +90,11 @@
     padding: 10px;
 }
 
-.h2 {
-    color: #fff;
-    font-family: 'Jelly Anika';
-    font-size: 60px;
-    font-weight: normal;
-    border-bottom: 1px solid #CECECE;
-    margin-bottom: 30px;
-}
-
-.create_button {
-    background-color: #8230FF;
-    font-family: 'Jelly Anika';
-    font-size: 30px;
-}
-
-.create_button:hover {
-    background-color: #D9FF61;
-}
-
-.input {
-    border: 1px solid #350086;
-    box-shadow: 0 0 5px #350086;
-    font-family: 'Jelly Anika';
-    font-size: 30px;
-    text-align: center;
-    padding: 5px;
-    width: 50%;
-}
-
-input:hover {
-    color: #D9FF61;
-    border: 3px solid #D9FF61;
-    box-shadow: 0 0 5px #D9FF61;
-}
-
-input, select, button{
-    background-color: transparent;
-    margin: 5px;
-    border: none;
+.input_raza_img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .contain_temp {
@@ -99,6 +113,7 @@ input, select, button{
 
 .temperaments {
     background-color: #8230FF;
+    color: #fff;
     width: 70%;
     font-family: 'Jelly Anika';
     font-size: 30px;
@@ -108,32 +123,67 @@ input, select, button{
 
 .temperaments:hover {
     background-color: #D9FF61;
+    color: #000;
 }
 
-.ul:hover {
-    background-color: #D9FF61;
-}
-
-.ul {
+.button_temp {
     background-color: #8230FF;
+    color: #fff;
     font-family: 'Jelly Anika';
-    font-size: 30px;
-    padding: 5px;
+    font-size: 20px;
+    padding: 10px;
     border-radius: 25px;
     text-align: center;
 }
 
-.input_form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.button_temp:hover {
+    background-color: #D9FF61;
+    color: #000;
 }
+
+.contain_peso {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.contain_altura {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.contain_años {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.peso {
+    margin-right: -90px;
+    margin-left: -90px;
+    width: 50%;
+}
+
+.altura {
+    margin-right: -90px;
+    margin-left: -90px;
+    width: 50%;
+}
+
+.años {
+    margin-right: -90px;
+    margin-left: -90px;
+    width: 50%;
+}
+
+/* --------------------ERRORES DOG CREATE------------------- */
 
 .p {
     color: #91ff00;
     font-family: 'Jelly Anika';
-    font-size: 20px;
+    font-size: 15px;
 }
+
 
 

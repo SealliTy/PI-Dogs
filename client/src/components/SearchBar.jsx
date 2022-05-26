@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { SearchDog } from '../actions/index';
 import style from '../components/SearchBar.module.css';
+import search from '../img/search.svg';
 
 export default function SearchBar({setPage}) {
   const [state, setState] = useState('');
@@ -22,7 +23,7 @@ export default function SearchBar({setPage}) {
   };
 
   return (
-    <form onSubmit={o => handleSubmit(o)}>
+    <form className={style.form} onSubmit={o => handleSubmit(o)}>
       <input
         className={style.search}
         type="text"
@@ -32,6 +33,7 @@ export default function SearchBar({setPage}) {
       />
 
       <input type='submit' value='' />
+      <img className={style.icon} src={search} />
     </form>
   );
 }

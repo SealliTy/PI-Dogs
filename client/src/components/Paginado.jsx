@@ -1,5 +1,5 @@
 import React from 'react';
-import './Paginado.css';
+import style from './Paginado.module.css';
 
 export default function Paginado({dogsPerPage, DogsCount, paginado}){
     let pages = []
@@ -9,11 +9,11 @@ export default function Paginado({dogsPerPage, DogsCount, paginado}){
     }
     pages.shift()
     return(
-        <nav>
-            <ul className='paginado_flex'>
+        <nav className={style.nav}>
+            <ul className={style.paginado_flex}>
                 {
                     pages && pages.map(n =>(
-                        <li key={n} className='paginado_item'>
+                        <li key={n} className={style.paginado_item}>
                             <button onClick={() => paginado(n)}>{n}</button>
                         </li>
                     ))

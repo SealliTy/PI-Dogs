@@ -1,10 +1,7 @@
 
-
-
-
 .card_container {
     display: grid;
-    grid-template-columns: repeat(4, 330px);
+    grid-template-columns: repeat(auto-fill, 330px);
     justify-content: center;
     align-items: center;
 }
@@ -41,12 +38,15 @@
 }
 
 .link {
+    display: flex;
+    justify-content: space-around;
     color: #fff;
     font-size: 30px;
     border: 3px solid #8BA0FF;
     box-shadow: 0 0 10px #8BA0FF;
+    margin-right: 20px;
+    margin-top: 5px;
     padding: 5px;
-    margin-right: 200px;
 }
 
 .link:hover {
@@ -57,20 +57,29 @@
 
 .navegacion {
     display: flex;
-    width: 100%;
     position: fixed;
+    width: 100%;
     justify-content: center;
     align-items: center;
-    background-color: rgba(1, 23, 126, .8);
+    background-color: rgb(1, 23, 126);
     font-size: 40px;
     color: #fff;
 }
 
 .reset {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     height: 70px;
     width: 70px;
 }
 
-
+@media screen and (max-width: 700px){
+    .navegacion {
+        flex-direction: column;
+        position: relative;
+        background-color: #D9FF61;
+    }
+    .filtros {
+        flex-wrap: wrap;
+    }
+}

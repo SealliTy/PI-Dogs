@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Card from './card';
 import Paginado from './Paginado';
 import style from './HomeDogs.module.css';
-import SearchBar from './SearchBar'
+import SearchBar from './SearchBar';
 
 
 export default function HomeDogs() {
@@ -39,6 +39,9 @@ export default function HomeDogs() {
         setInput({
             ...input,
             api_db: o.target.value,
+            peso: '',
+            raza: '',
+            temperaments: ''
         })
     }
 
@@ -47,6 +50,8 @@ export default function HomeDogs() {
         setInput({
             ...input,
             temperaments: o.target.value,
+            peso: '',
+            raza: ''
         })
     }
 
@@ -56,6 +61,8 @@ export default function HomeDogs() {
         setInput({
             ...input,
             peso: o.target.value,
+            raza: '',
+            temperaments: ''
         })
     }
 
@@ -65,6 +72,8 @@ export default function HomeDogs() {
         setInput({
             ...input,
             raza: o.target.value,
+            peso: '',
+            temperaments: ''
         })
     }
 
@@ -99,7 +108,9 @@ export default function HomeDogs() {
                                 setPage = {setPage}
                             />
                     </li>
-                    <li onClick={o => resetPage(o)}><img src={reset} alt='reset' className={style.reset}></img></li>
+                    <li onClick={o => resetPage(o)}>
+                        <img src={reset} alt='reset' className={style.reset} />
+                    </li>
                 </ul>
             </div>
 

@@ -17,9 +17,12 @@ export default function DogCreate() {
         raza: '',
         temperaments: [],
         img: '',
-        peso: '',
-        altura: '',
-        añosVida: ''
+        pesomin: '',
+        pesomax:'',
+        alturamin: '',
+        alturamax: '',
+        añosVidamin: '',
+        añosVidamax: ''
     })
 
     useEffect(() => {
@@ -36,13 +39,13 @@ export default function DogCreate() {
         else if (dog.raza.length < 3) {
             errors.raza = 'Debe de tener mas de 3 letras'
         }
-        if (dog.peso === '') {
+        if (dog.pesomin === '' || dog.pesomax === '') {
             errors.peso = 'Se requiere su peso'
         }
-        if (dog.altura === '') {
+        if (dog.alturamin === '' || dog.alturamax === '') {
             errors.altura = 'Se requiere su altura'
         }
-        if (dog.añosVida === '') {
+        if (dog.añosVidamin === '' || dog.añosVidamax === '') {
             errors.añosVida = 'Se requiere sus años de vida'
         }
         if (dog.temperaments.length === 0) {
@@ -51,7 +54,6 @@ export default function DogCreate() {
 
         return errors;
     }
-    console.log(errors)
 
     const handleChange = (o) => {
         setDog({
@@ -104,46 +106,81 @@ export default function DogCreate() {
     return (
         <div className={style.body}>
             <div className={style.link}>
+{/* ---------------------------------------INICIA BOTON BACK----------------------------- */}
             <Link to='/HomeDogs' style={{ textDecoration: 'none' }}>
                     <span className={style.back}>Back</span>
                 </Link>
                 </div>
+{/* ---------------------------------------INICIA FORMULARIO Y TITULO----------------------------- */}
             <form className={style.form} onSubmit={(o) => handleClick(o)}>
                 <h2 className={style.h2}>Dog Create</h2>
-                <div className={style.input_form} >
+{/* ---------------------------------------INICIA RAZA----------------------------- */}
+                <div className={style.input_raza_img} >
                     <input className={style.input} placeholder='Raza' type='text' name='raza' value={dog.raza} onChange={handleChange}></input>
                     {
                         errors.raza &&
                         <p className={style.p} >{errors.raza}</p>
                     }
                 </div>
-                <div className={style.input_form} >
+{/* ---------------------------------------INICIA IMG----------------------------- */}
+                <div className={style.input_raza_img} >
                     <input className={style.input} placeholder='Imagen del cachorro' name='img' value={dog.img} onChange={handleChange}></input>
                     {
 
                     }
                 </div>
-                <div className={style.input_form} >
-                    <input className={style.input} placeholder='Peso Kgs' type='number' name='peso' value={dog.peso} min={1} max={99} onChange={handleChange}></input>
+{/* ---------------------------------------INICIA PESO----------------------------- */}
+                <div className={style.contain_peso}>
+                <div className={style.peso}>
+                    <input className={style.input} placeholder='Peso min Kgs' type='number' name='pesomin' value={dog.pesomin} min={1} max={99} onChange={handleChange}></input>
                     {
                         errors.peso &&
                         <p className={style.p} >{errors.peso}</p>
                     }
                 </div>
-                <div className={style.input_form} >
-                    <input className={style.input} placeholder='Altura Cms' type='number' name='altura' value={dog.altura} min={1} max={99} onChange={handleChange}></input>
+                <div className={style.peso} >
+                    <input className={style.input} placeholder='Peso max Kgs' type='number' name='pesomax' value={dog.pesomax} min={1} max={99} onChange={handleChange}></input>
+                    {
+                        errors.peso &&
+                        <p className={style.p} >{errors.peso}</p>
+                    }
+                </div>
+                </div>
+{/* ---------------------------------------INICIA ALTURA----------------------------- */}
+                <div className={style.contain_altura}>
+                <div className={style.altura} >
+                    <input className={style.input} placeholder='Altura min Cms' type='number' name='alturamin' value={dog.alturamin} min={1} max={110} onChange={handleChange}></input>
                     {
                         errors.altura &&
                         <p className={style.p} >{errors.altura}</p>
                     }
                 </div>
-                <div className={style.input_form} >
-                    <input className={style.input} placeholder='Años del cachorro' type='number' name='añosVida' value={dog.añosVida} min={1} max={99} onChange={handleChange}></input>
+                <div className={style.altura} >
+                    <input className={style.input} placeholder='Altura max Cms' type='number' name='alturamax' value={dog.alturamax} min={1} max={110} onChange={handleChange}></input>
+                    {
+                        errors.altura &&
+                        <p className={style.p} >{errors.altura}</p>
+                    }
+                </div>
+                </div>
+{/* ---------------------------------------INICIA AÑOS----------------------------- */}
+                <div className={style.contain_años}>
+                <div className={style.años} >
+                    <input className={style.input} placeholder='Años min' type='number' name='añosVidamin' value={dog.añosVidamin} min={1} max={20} onChange={handleChange}></input>
                     {
                         errors.añosVida &&
                         <p className={style.p} >{errors.añosVida}</p>
                     }
                 </div>
+                <div className={style.años} >
+                    <input className={style.input} placeholder='Años max' type='number' name='añosVidamax' value={dog.añosVidamax} min={1} max={20} onChange={handleChange}></input>
+                    {
+                        errors.añosVida &&
+                        <p className={style.p} >{errors.añosVida}</p>
+                    }
+                </div>
+                </div>
+{/* ---------------------------------------INICIA TEMPERAMENTOS----------------------------- */}
                 <div className={style.contain_temp}>
                     {/* <p className={style.temperamentos}>Temperamentos:</p> */}
                     <select className={style.temperaments} onChange={(o) => handleSelect(o)}>
@@ -159,14 +196,16 @@ export default function DogCreate() {
                             <p className={style.p} >{errors.temperaments}</p>
                         }
                 </div>
+{/* ---------------------------------------INICIA TEMPERAMENTOS BORRAR----------------------------- */}
                 <ul>
                     {dog.temperaments.map(o => {
                         return (
-                            <button className={style.ul} key={dog.temperaments.indexOf(o)} onClick={() => handleDelete(o)}>{o}
+                            <button className={style.button_temp} key={dog.temperaments.indexOf(o)} onClick={() => handleDelete(o)}>{o}
                             </button>
                         )
                     })}
                 </ul>
+{/* ---------------------------------------INICIA BOTON CREAR----------------------------- */}
                 <button className={style.create_button} type='submit'>Create</button>
             </form>
         </div>
