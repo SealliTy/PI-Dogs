@@ -156,24 +156,20 @@ export default function HomeDogs() {
         />
       </div>
       <div className={style.card_container}>
-        {currentDogs &&
-          currentDogs.map((o) => {
-            return (
-              <div className={style.cards_dogs} key={o.id}>
-                <Link
-                  to={`/HomeDogs/${o.id}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <Card
-                    raza={o.raza}
-                    img={o.img}
-                    peso={o.peso}
-                    temperaments={o.temperaments}
-                  />
-                </Link>
-              </div>
-            );
-          })}
+        {currentDogs?.map((o) => {
+          return (
+            <div className={style.cards_dogs} key={o.id}>
+              <Link to={`/HomeDogs/${o.id}`} style={{ textDecoration: "none" }}>
+                <Card
+                  raza={o.raza}
+                  img={o.img}
+                  peso={o.peso}
+                  temperaments={o.temperaments}
+                />
+              </Link>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
