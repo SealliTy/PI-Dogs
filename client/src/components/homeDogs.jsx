@@ -157,7 +157,7 @@ export default function HomeDogs() {
       </div>
       <div className={style.card_container}>
         {currentDogs &&
-          currentDogs?.map((o) => {
+          currentDogs.map((o) => {
             return (
               <div className={style.cards_dogs} key={o.id}>
                 <Link
