@@ -1,33 +1,38 @@
 import axios from "axios";
+const BASE_URL = process.env.CORS_URL || "http://localhost:3001";
 
 export function getDogs() {
   return async function (dispatch) {
-    const json = await axios.get("https://pi-dogs-eosin.vercel.app/dogs");
-    return dispatch({
-      type: "DOGS",
-      payload: json.data,
-    });
+    try {
+      const json = await axios.get(`${BASE_URL}/dogs`);
+      return dispatch({
+        type: "DOGS",
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 
 export function getTemperaments() {
   return async function (dispatch) {
-    const json = await axios.get(
-      "https://pi-dogs-eosin.vercel.app/temperament"
-    );
-    return dispatch({
-      type: "TEMPERAMENT",
-      payload: json.data,
-    });
+    try {
+      const json = await axios.get(`${BASE_URL}/temperament`);
+      return dispatch({
+        type: "TEMPERAMENT",
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 
 export function getDogId(id) {
   return async function (dispatch) {
     try {
-      const json = await axios.get(
-        `https://pi-dogs-eosin.vercel.app/dogs/${id}`
-      );
+      const json = await axios.get(`${BASE_URL}/dogs/${id}`);
       return dispatch({
         type: "DOG_ID",
         payload: json.data,
@@ -40,23 +45,29 @@ export function getDogId(id) {
 
 export function dogCreate(dog) {
   return async function (dispatch) {
-    const json = await axios.post("https://pi-dogs-eosin.vercel.app/dog", dog);
-    return dispatch({
-      type: "DOG_CREATE",
-      payload: json,
-    });
+    try {
+      const json = await axios.post(`${BASE_URL}/dog`, dog);
+      return dispatch({
+        type: "DOG_CREATE",
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 
 export function SearchDog(payload) {
   return async function (dispatch) {
-    const json = await axios.get(
-      `https://pi-dogs-eosin.vercel.app/dogs?name=${payload}`
-    );
-    return dispatch({
-      type: "SEARCH_DOG",
-      payload: json.data,
-    });
+    try {
+      const json = await axios.get(`${BASE_URL}/dogs?name=${payload}`);
+      return dispatch({
+        type: "SEARCH_DOG",
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 

@@ -18,7 +18,7 @@ import SearchBar from "./SearchBar";
 
 export default function HomeDogs() {
   const dispatch = useDispatch();
-  const Dogs = useSelector((state) => state.dogsFilter);
+  const dogs = useSelector((state) => state.dogsFilter);
   const allTemperaments = useSelector((state) => state.temperaments);
   const [input, setInput] = React.useState({
     raza: "",
@@ -30,7 +30,7 @@ export default function HomeDogs() {
   const dogsPerPage = 8;
   const indexOfLastDog = currentPage * dogsPerPage;
   const indexOffirstDog = indexOfLastDog - dogsPerPage;
-  const currentDogs = Dogs.slice(indexOffirstDog, indexOfLastDog);
+  const currentDogs = dogs.slice(indexOffirstDog, indexOfLastDog);
   const paginado = (pages) => {
     setPage(pages);
   };
@@ -151,7 +151,7 @@ export default function HomeDogs() {
       <div className={style.paginado}>
         <Paginado
           dogsPerPage={dogsPerPage}
-          DogsCount={Dogs.length}
+          DogsCount={dogs.length}
           paginado={paginado}
         />
       </div>
