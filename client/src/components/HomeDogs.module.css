@@ -1,85 +1,84 @@
-
 .card_container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 330px);
-    justify-content: center;
-    align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 330px);
+  justify-content: center;
+  align-items: center;
 }
 
 .cards_dogs {
-    display: flex;
-    align-content: center;
-    justify-content: center;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 .filtros {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .filtros select {
-    color: #fff;
-    font-size: 25px;
-    font-family: 'Jelly Anika';
-    font-weight: normal;
-    padding: 3px;
-    background-color: rgba(1, 23, 126, .8);
-    border: 1px solid #fff;
-    box-shadow: 0 0 3px #fff;
-    text-align: center;
-    margin-top: 100px;
+  color: #fff;
+  font-size: 25px;
+  font-family: "Jelly Anika";
+  font-weight: normal;
+  padding: 3px;
+  background-color: rgba(1, 23, 126, 0.8);
+  border: 1px solid #fff;
+  box-shadow: 0 0 3px #fff;
+  text-align: center;
+  margin-top: 100px;
 }
 
 .filtros select:hover {
-    color: #D9FF61;
-    border: 3px solid #D9FF61;
-    box-shadow: 0 0 5px #D9FF61;
+  color: #d9ff61;
+  border: 3px solid #d9ff61;
+  box-shadow: 0 0 5px #d9ff61;
 }
 
 .link {
-    display: flex;
-    justify-content: space-around;
-    color: #fff;
-    font-size: 30px;
-    border: 3px solid #8BA0FF;
-    box-shadow: 0 0 10px #8BA0FF;
-    margin-right: 20px;
-    margin-top: 5px;
-    padding: 5px;
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  font-size: 30px;
+  border: 3px solid #8ba0ff;
+  box-shadow: 0 0 10px #8ba0ff;
+  margin-right: 20px;
+  margin-top: 5px;
+  padding: 5px;
 }
 
 .link:hover {
-    color: #D9FF61;
-    border: 3px solid #D9FF61;
-    box-shadow: 0 0 10px #D9FF61;
+  color: #d9ff61;
+  border: 3px solid #d9ff61;
+  box-shadow: 0 0 10px #d9ff61;
 }
 
 .navegacion {
-    display: flex;
-    position: fixed;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(1, 23, 126);
-    font-size: 40px;
-    color: #fff;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(1, 23, 126);
+  font-size: 40px;
+  color: #fff;
 }
 
 .reset {
-    display: flex;
-    justify-content: space-around;
-    height: 70px;
-    width: 70px;
+  display: flex;
+  justify-content: space-around;
+  height: 70px;
+  width: 70px;
 }
 
-@media screen and (max-width: 700px){
-    .navegacion {
-        flex-direction: column;
-        position: relative;
-        background-color: #D9FF61;
-    }
-    .filtros {
-        flex-wrap: wrap;
-    }
+@media screen and (max-width: 700px) {
+  .navegacion {
+    flex-direction: column;
+    position: relative;
+    background-color: rgb(1, 23, 126);
+  }
+  .filtros {
+    flex-wrap: wrap;
+  }
 }
